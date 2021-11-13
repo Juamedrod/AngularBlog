@@ -1,13 +1,19 @@
 .ng-valid.ng-touched:not(form){
-    border: 1px solid lightgreen;
+    border: 2px solid lightgreen;
 }
 
 .ng-invalid.ng-touched:not(form){
-    border: 1px solid tomato;
+    border: 2px solid tomato;
 }
 
 .error{
     color: tomato;
     font-size: 12px;
     font-family: MuseoModerno;
+}
+
+.bkgContainer{
+    background-color:  rgba(44, 62, 80,1.0);
+    height: 100vh;
+    border-top:3px solid rgba(127, 140, 141,1.0);
 }

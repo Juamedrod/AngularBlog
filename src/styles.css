@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import url(https://fonts.googleapis.com/css?family=MuseoModerno:100,200,300,regular,500,600,700,800,900);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+:root{
+    --colorPpal: #1e272e;
+}
+
+body{
+    font-family: MuseoModerno;
+    background-color: var(--colorPpal);
+    color: white;
+}
+
+h2,li{
+    font-family: Montserrat;
+}
+

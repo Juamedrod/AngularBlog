@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { PostService } from '../services/post.service';
+
 
 @Component({
   selector: 'app-formulario',
@@ -9,7 +12,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class FormularioComponent implements OnInit {
   formulario: FormGroup;
 
-  constructor() {
+  constructor(private postService: PostService, private router: Router) {
     this.formulario = new FormGroup({
       titulo: new FormControl('', [Validators.required, Validators.minLength(5)]),
       texto: new FormControl('', [Validators.required]),
@@ -25,6 +28,11 @@ export class FormularioComponent implements OnInit {
 
   onSubmit() {
     console.log(this.formulario.value);
+    if (this.formulario.valid) {
+      this.postService.create(this.formulario.value);
+      alert('¡Exito! Post creado.');
+      this.router.navigate(['/blog']);
+    }
   }
 
   checkError(controlName: string, error: string, touched: boolean): boolean | undefined {

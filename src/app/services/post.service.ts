@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { arrInicial } from 'src/assets/productionOnly';
 import { Post } from '../interfaces/post.interface';
 
 const LS_ITEM: string = 'arrPosts';
@@ -25,6 +26,7 @@ export class PostService {
   }
 
   getByCategory(category: string): Post[] {
+    if (category === '') return this.getAll();
     return this.arrPosts.filter(post => post.categoria === category);
   }
 
@@ -36,7 +38,7 @@ export class PostService {
     if (localStorage.getItem(LS_ITEM)) {
       return JSON.parse(localStorage.getItem(LS_ITEM)!);
     } else {
-      return [];
+      return arrInicial;
     }
   }
 

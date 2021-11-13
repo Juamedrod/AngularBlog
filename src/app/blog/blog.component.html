@@ -1,3 +1,25 @@
-<p>{{postNumber>0? '¡Increible, ya tienes:'+ postNumber +'posts!': 'Introduce algunos posts para
-    comenzar!' }}
-</p>
+<div class="container-flux container-md wrapper">
+    <h1 class="text-center py-2 ">Bienvenido a mi Blog</h1>
+    <div class="my-3">
+        <select class="form-select" (change)="onChange($event)">
+            <option value="">Filtra por categoria</option>
+            <option value="viajes">Viajes</option>
+            <option value="moda">Moda</option>
+            <option value="ocio">Ocio</option>
+            <option value="comida">Comida</option>
+            <option value="vehiculos">Vehiculos</option>
+            <option value="otros">Otros</option>
+        </select>
+    </div>
+    <div [ngClass]="{'par': even, 'impar':odd, 'post':true, 'mx-md-5':true, 'mb-2':true}"
+        *ngFor="let post of arrPosts; let even=even; let odd=odd" [id]="post.titulo">
+        <h2 class="mt-1 text-center ">{{post.titulo}}</h2>
+        <blockquote class="p-1 p-md-3">{{post.texto}}</blockquote>
+        <p class="text-center">{{post.autor}} </p>
+        <div class="container">
+            <div class="marco w-100" [ngStyle]="{backgroundImage: 'url('+post.imagen+')'}">
+            </div>
+        </div>
+        <p class="text-center">{{post.fecha | date}} ---- {{post.categoria|uppercase}} </p>
+    </div>
+</div>
