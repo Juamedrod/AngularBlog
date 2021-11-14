@@ -7,12 +7,13 @@
 }
 
 body{
-    font-family: MuseoModerno;
+    font-family: Montserrat;
     background-color: var(--colorPpal);
     color: white;
 }
 
-h2,li{
-    font-family: Montserrat;
+h1,h2,li, a{
+    font-family: MuseoModerno, Montserrat;
+    text-shadow: 1px 1px 1px rgba(127, 140, 141, 1),0px 0px 3px rgba(127, 140, 141, 1);
 }
 

@@ -1,4 +1,4 @@
-<div class="container-flux container-md wrapper">
+<div class="container-flux container-md wrapper pb-2">
     <h1 class="text-center py-2 ">Bienvenido a mi Blog</h1>
     <div class="my-3">
         <select class="form-select" (change)="onChange($event)">
@@ -11,15 +11,15 @@
             <option value="otros">Otros</option>
         </select>
     </div>
-    <div [ngClass]="{'par': even, 'impar':odd, 'post':true, 'mx-md-5':true, 'mb-2':true}"
+    <div [ngClass]="{'par': even, 'impar':odd, 'post':true, 'mx-md-5':true, 'mb-3':true}"
         *ngFor="let post of arrPosts; let even=even; let odd=odd" [id]="post.titulo">
         <h2 class="mt-1 text-center ">{{post.titulo}}</h2>
         <blockquote class="p-1 p-md-3">{{post.texto}}</blockquote>
         <p class="text-center">{{post.autor}} </p>
-        <div class="container">
-            <div class="marco w-100" [ngStyle]="{backgroundImage: 'url('+post.imagen+')'}">
+        <div class="container mb-2">
+            <div class="marco" [ngStyle]="{backgroundImage: 'url('+post.imagen+')'}">
             </div>
         </div>
-        <p class="text-center">{{post.fecha | date}} ---- {{post.categoria|uppercase}} </p>
+        <p class="text-center text-secondary ">{{post.fecha | date}} ---- {{post.categoria|uppercase}} </p>
     </div>
 </div>
